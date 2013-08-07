@@ -1,0 +1,19 @@
+#!/bin/sh
+DEFAULT_SESSION=xfce4
+
+case $1 in
+xfce4)
+  xde_session=startxfce4
+  ;;
+awesome)
+  xde_session=awesome
+  ;;
+lxde)
+  xde_session=startlxde
+  ;;
+kde)
+  xde_session=startkde
+  ;;
+esac
+
+exec $xde_session
