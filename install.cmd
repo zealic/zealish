@@ -5,7 +5,7 @@
 @echo off
 pushd "%~dp0"
 if "%TERM%" EQU "" (
-  powershell -File "%cd%\system\windows.ps1"
+  powershell -File "%cd%\share\startup.ps1"
   @goto :eof
 )
 @bash "%~dp0\%~nx0" "%cd%" "%~dp0"
@@ -16,9 +16,6 @@ EOF
 #=========================================================
 # BEGIN SHELL
 #=========================================================
-_PROFILE_BASE_DIR=$PWD
-_PROFILE_SYSTEM_DIR="$_PROFILE_BASE_DIR/system"
-
 if [ "$(uname -s)" == "Darwin" ]; then
   _OS_NAME=darwin
 elif [ "$(uname -s)" == "Linux" ]; then
@@ -33,4 +30,4 @@ else
   echo "Not supported system."
   exit 1
 fi
-source ${_PROFILE_SYSTEM_DIR}/${_OS_NAME}.sh
+"$PWD/share/startup.sh" "$_OS_NAME"
