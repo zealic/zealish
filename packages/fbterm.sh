@@ -8,4 +8,4 @@ PACKAGES=(
 # Configure permission
 setcap 'cap_sys_tty_config+ep' /usr/bin/fbterm
 
-pacman -S $(PACKAGES)
+pacman --no-confirm -S $(PACKAGES)
