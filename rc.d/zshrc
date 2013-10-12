@@ -40,7 +40,34 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git fbterm)
+
+fbterm() {
+  bg_file_list=(
+    /var/.config/wallpaper.jpg
+    /usr/share/backgrounds/xfce/xfce-blue.jpg
+    /usr/share/backgrounds/xfce/xfce-evil.jpg
+    /usr/share/archlinux/wallpaper/archlinux-simplyblack.png
+  )
+  maybe_bg_list=()
+  for i in "${bg_file_list[@]}"
+  do
+    if [[ -f "$i" ]]
+    then
+        maybe_bg_list+=("$i")
+    fi
+  done
+
+  bg_file_index=$(( ( RANDOM % ${#maybe_bg_list[@]} ) + 1 ))
+  bg_file=${maybe_bg_list[$bg_file_index]}
+  echo -ne "\e[?25l"
+  fbv -ciuker "$bg_file" << EOF
+q
+EOF
+  export FBTERM_BACKGROUND_IMAGE=1
+  export LANG=zh_CN.UTF-8
+  fcitx-fbterm-helper -l > /dev/null
+}
 
 source $ZSH/oh-my-zsh.sh
 
