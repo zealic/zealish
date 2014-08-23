@@ -42,6 +42,10 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git fbterm)
 
+if [[ -z "$LANG" ]]; then
+  export LANG=zh_CN.UTF-8
+fi
+
 fbterm() {
   bg_file_list=(
     /var/.config/wallpaper.jpg
@@ -65,7 +69,6 @@ fbterm() {
 q
 EOF
   export FBTERM_BACKGROUND_IMAGE=1
-  export LANG=zh_CN.UTF-8
   fcitx-fbterm-helper -l > /dev/null
 }
 
