@@ -1,0 +1,1 @@
+EXTRA_ARGS="--registry-mirror=https://docker.mirrors.ustc.edu.cn"
