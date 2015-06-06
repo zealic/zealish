@@ -11,6 +11,10 @@ keepassx
 limechat
 mou
 mplayerx
+neteasemusic
+path-finder
+proxifier
+qq
 skype
 thunder
 xamarin-studio
@@ -19,6 +23,7 @@ xnviewmp
 
 # Development
 boot2docker
+dash
 packer
 vagrant
 virtualbox
