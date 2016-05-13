@@ -1,5 +1,5 @@
 #/bin/sh
-_BASE_DIR=$(cd .. & echo "$PWD")
+_BASE_DIR=$(cd .. && echo "$PWD")
 _OS_NAME=$1
 
 # Load all of the config files.
