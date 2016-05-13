@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<root>
+  <deviceproductdef>
+    <productname>USB_KEYBOARD</productname>
+    <productid>0x4545</productid>
+  </deviceproductdef>
+
+  <devicevendordef>
+    <vendorname>USB_KEYBOARD</vendorname>
+    <vendorid>0x04d9</vendorid>
+  </devicevendordef>
+
+  <modifierdef>MAGIC</modifierdef>
+
+  <item>
+    <name>Zealish Keymap</name>
+
+    <item>
+      <name>Swap Command and Option (USB Keyboard only)</name>
+      <identifier>private.zealish.magic_caplocks.swap_command_and_option</identifier>
+      <device_only>DeviceVendor::USB_KEYBOARD, DeviceProduct::USB_KEYBOARD</device_only>
+      <autogen>
+        __KeyToKey__
+        KeyCode::COMMAND_L,
+        KeyCode::OPTION_L,
+      </autogen>
+      <autogen>
+        __KeyToKey__
+        KeyCode::OPTION_L,
+        KeyCode::COMMAND_L,
+      </autogen>
+    </item>
+
+    <item>
+      <name>Enbled Magic CapLocks</name>
+      <identifier>private.zealish.magic_caplocks</identifier>
+      <appendix>* Required:</appendix>
+      <appendix>Use Seil to change CapsLock to F19 (Keycode: 80)</appendix>
+      <autogen>
+        __KeyToKey__
+        KeyCode::F19,
+        KeyCode::VK_MODIFIER_MAGIC
+      </autogen>
+    </item>
+
+    <item>
+      <name>Magic CapLocks</name>
+      <!-- Music Previous -->
+      <item>
+        <name>Music Previous (Magic + ←)</name>
+        <identifier>private.zealish.magic_caplocks.music_previous</identifier>
+        <autogen>
+          __KeyToKey__
+          KeyCode::CURSOR_LEFT, ModifierFlag::MAGIC | ModifierFlag::NONE,
+          ConsumerKeyCode::MUSIC_PREV,
+        </autogen>
+      </item>
+      <!-- Music Next -->
+      <item>
+        <name>Music Next (Magic + →)</name>
+        <identifier>private.zealish.magic_caplocks.music_next</identifier>
+        <autogen>
+          __KeyToKey__
+          KeyCode::CURSOR_RIGHT, ModifierFlag::MAGIC | ModifierFlag::NONE,
+          ConsumerKeyCode::MUSIC_NEXT,
+        </autogen>
+      </item>
+      <!-- Volume Up -->
+      <item>
+        <name>Volume Up (Magic + ↑)</name>
+        <identifier>private.zealish.magic_caplocks.volume_up</identifier>
+        <autogen>
+          __KeyToKey__
+          KeyCode::CURSOR_UP, ModifierFlag::MAGIC | ModifierFlag::NONE,
+          ConsumerKeyCode::VOLUME_UP,
+        </autogen>
+      </item>
+      <!-- Volume Down -->
+      <item>
+        <name>Volume Down (Magic + ↓)</name>
+        <identifier>private.zealish.magic_caplocks.volume_down</identifier>
+        <autogen>
+          __KeyToKey__
+          KeyCode::CURSOR_DOWN, ModifierFlag::MAGIC | ModifierFlag::NONE,,
+          ConsumerKeyCode::VOLUME_DOWN,
+        </autogen>
+      </item>
+      <!-- Music Play -->
+      <item>
+        <name>Music Play (Magic + Shift + ↑)</name>
+        <identifier>private.zealish.magic_caplocks.music_play</identifier>
+        <autogen>
+          __KeyToKey__
+          KeyCode::CURSOR_UP, ModifierFlag::MAGIC | ModifierFlag::SHIFT_L,
+          ConsumerKeyCode::MUSIC_PLAY,
+        </autogen>
+      </item>
+      <!-- Volume Mute -->
+      <item>
+        <name>Volume Mute (Magic + Shift + ↓)</name>
+        <identifier>private.zealish.magic_caplocks.volume_mute</identifier>
+        <autogen>
+          __KeyToKey__
+          KeyCode::CURSOR_DOWN, ModifierFlag::MAGIC | ModifierFlag::SHIFT_L,
+          ConsumerKeyCode::VOLUME_MUTE,
+        </autogen>
+      </item>
+    </item>
+  </item>
+</root>
