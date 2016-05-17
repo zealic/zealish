@@ -45,6 +45,18 @@
 
     <item>
       <name>Magic CapLocks</name>
+      <!--=====================================================================>
+      <!-- Lock Screen -->
+      <item>
+        <name>Lock Screen (Magic + L)</name>
+        <identifier>private.zealish.magic_caplocks.lock_screen</identifier>
+        <autogen>
+          __KeyToKey__
+          KeyCode::L, ModifierFlag::MAGIC,
+          ConsumerKeyCode::EJECT, ModifierFlag::CONTROL_L, ModifierFlag::SHIFT_L
+        </autogen>
+      </item>
+      <!--=====================================================================>
       <!-- Music Previous -->
       <item>
         <name>Music Previous (Magic + ←)</name>
