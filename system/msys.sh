@@ -1,1 +1,1 @@
-echo "Installing for MSYS..."
+echo "Startup for MSYS..."

@@ -1,1 +1,1 @@
-echo "Installing for FreeBSD..."
+echo "Startup for FreeBSD..."

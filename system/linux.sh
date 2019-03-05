@@ -1,1 +1,1 @@
-echo "Installing for Linux..."
+echo "Startup for Linux..."

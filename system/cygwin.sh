@@ -1,1 +1,1 @@
-echo "Installing for Cygwin..."
+echo "Startup for Cygwin..."
