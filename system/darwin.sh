@@ -1,4 +1,3 @@
-echo "Startup for MacOS..."
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
   echo "oh-my-zsh is required!"
   return
@@ -22,5 +21,4 @@ plugins+=(
 path+=(
   /usr/local/bin
 )
-echo $plugins
 source $ZSH/oh-my-zsh.sh
