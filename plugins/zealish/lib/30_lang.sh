@@ -6,6 +6,9 @@ path+=(
 
 # Java
 export JAVA_HOME=/Library/Java/Home
+if [[ -d "/usr/local/opt/groovy/libexec" ]]; then
+  export GROOVY_HOME=/usr/local/opt/groovy/libexec
+fi
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
