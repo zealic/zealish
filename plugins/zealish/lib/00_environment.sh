@@ -1,7 +1,5 @@
 OS=$(uname -s | tr '[:lower:]' '[:upper:]')
 if [[ "$OS" == "LINUX" ]]; then
-  export LANG=zh_CN.UTF-8
-
   # For input method
   export GTK_IM_MODULE=fcitx
   export QT_IM_MODULE=fcitx
@@ -9,3 +7,5 @@ if [[ "$OS" == "LINUX" ]]; then
 
   export BROWSER=firefox
 fi
+
+export LANG=en_US.UTF-8
