@@ -6,6 +6,10 @@ path+=(
 
 # Java
 export JAVA_HOME=/Library/Java/Home
+if [[ ! -d "${JAVA_HOME}" ]]; then
+  echo "\e[33mWARN\e[0m: JAVA_HOME '${JAVA_HOME}' dosn't exists."
+fi
+
 if [[ -d "/usr/local/opt/groovy/libexec" ]]; then
   export GROOVY_HOME=/usr/local/opt/groovy/libexec
 fi
