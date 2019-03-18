@@ -14,6 +14,11 @@ if [[ -d "/usr/local/opt/groovy/libexec" ]]; then
   export GROOVY_HOME=/usr/local/opt/groovy/libexec
 fi
 
+GRADLE_BIN=`which gradle`
+if [[ ! -z "${GRADLE_BIN}" ]]; then
+  export GRADLE_HOME=`dirname $(dirname $(greadlink -f $GRADLE_BIN))`
+fi
+
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
