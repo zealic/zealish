@@ -15,9 +15,16 @@ if [[ ! -f ~/.m2/settings.xml ]]; then
 <settings>
   <mirrors>
     <mirror>
-      <id>alimaven</id>
-      <name>aliyun maven</name>
-      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+      <id>aliyun-central</id>
+      <name>aliyun central</name>
+      <url>https://maven.aliyun.com/repository/central</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+
+    <mirror>
+      <id>aliyun-public</id>
+      <name>aliyun public</name>
+      <url>https://maven.aliyun.com/repository/public</url>
       <mirrorOf>*</mirrorOf>
     </mirror>
 
