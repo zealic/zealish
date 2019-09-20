@@ -1,4 +1,9 @@
-BACKUP_DIR=$HOME/Dropbox/Workspace/$(hostname)
+HOSTNAME=$(hostname)
+BACKUP_DIR=$HOME/Dropbox/Workspace/$HOSTNAME
+
+if [[ "$HOSTNAME" == "localhost" ]]; then
+  return
+fi
 
 if [[ ! -d "$BACKUP_DIR" ]]; then
   mkdir -p "$BACKUP_DIR"
