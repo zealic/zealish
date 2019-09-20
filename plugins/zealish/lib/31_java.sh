@@ -1,5 +1,5 @@
 # Java
-export JAVA_HOME=/Library/Java/Home
+export JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home' | awk '{ print $3 }')
 if [[ ! -d "${JAVA_HOME}" ]]; then
   echo "\e[33mWARN\e[0m: JAVA_HOME '${JAVA_HOME}' dosn't exists."
 fi
@@ -15,30 +15,9 @@ if [[ ! -f ~/.m2/settings.xml ]]; then
 <settings>
   <mirrors>
     <mirror>
-      <id>aliyun-central</id>
-      <name>aliyun central</name>
-      <url>https://maven.aliyun.com/repository/central</url>
-      <mirrorOf>*</mirrorOf>
-    </mirror>
-
-    <mirror>
       <id>aliyun-public</id>
       <name>aliyun public</name>
       <url>https://maven.aliyun.com/repository/public</url>
-      <mirrorOf>*</mirrorOf>
-    </mirror>
-
-    <mirror>
-      <id>aliyun-spring</id>
-      <name>aliyun spring</name>
-      <url>https://maven.aliyun.com/repository/spring</url>
-      <mirrorOf>*</mirrorOf>
-    </mirror>
-
-    <mirror>
-      <id>aliyun-spring-plugin</id>
-      <name>aliyun spring-plugin</name>
-      <url>https://maven.aliyun.com/repository/spring-plugin</url>
       <mirrorOf>*</mirrorOf>
     </mirror>
   </mirrors>
