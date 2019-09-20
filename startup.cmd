@@ -43,13 +43,7 @@ unset -f startup_os
 bootfile="$ZEALISH/system/$(uname -s | tr '[:upper:]' '[:lower:]').sh"
 if [[ -f "$bootfile" ]]; then
   sh $ZEALISH/upgrade.sh
-  cat <<EOF
-  _____  _____      _      _       ___   ____    _   _ 
- |__  / | ____|    / \    | |     |_ _| / ___|  | | | |
-   / /  |  _|     / _ \   | |      | |  \___ \  | |_| |
-  / /_  | |___   / ___ \  | |___   | |   ___) | |  _  |
- /____| |_____| /_/   \_\ |_____| |___| |____/  |_| |_|
-EOF
+  cat $ZEALISH/LOGO.txt
   source "$bootfile"
 else
   echo "Not supported system, $bootfile"
