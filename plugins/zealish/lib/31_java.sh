@@ -26,7 +26,6 @@ EOF
 fi
 
 # Gradle
-GRADLE_BIN=`which gradle`
-if [[ ! -z "${GRADLE_BIN}" ]]; then
+if GRADLE_BIN=`which gradle`; then
   export GRADLE_HOME=`dirname $(dirname $(greadlink -f $GRADLE_BIN))`
 fi

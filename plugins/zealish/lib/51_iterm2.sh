@@ -1,8 +1,7 @@
 SOURCE_PROFILE_DIR="$HOME/Dropbox/Databox/Hosts"
 DYNAMIC_PROFILE_DIR="$HOME/Library/Application Support/iTerm2/DynamicProfiles"
 
-GOMPLATE_BIN=`which gomplate`
-if [[ -z "${GOMPLATE_BIN}" ]]; then
+if ! GOMPLATE_BIN=`which gomplate`; then
   echo "\e[33mWARN\e[0m: Initalize iTerm2 dynamic profiles failed, gomplate dosn't exists."
   return
 fi
