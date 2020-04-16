@@ -1,8 +1,9 @@
 # Java
-export JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home' | awk '{ print $3 }')
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 if [[ ! -d "${JAVA_HOME}" ]]; then
   echo "\e[33mWARN\e[0m: JAVA_HOME '${JAVA_HOME}' dosn't exists."
 fi
+launchctl setenv JAVA_HOME "${JAVA_HOME}"
 
 if [[ -d "/usr/local/opt/groovy/libexec" ]]; then
   export GROOVY_HOME=/usr/local/opt/groovy/libexec
