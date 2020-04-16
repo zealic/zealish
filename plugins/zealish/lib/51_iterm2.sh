@@ -33,7 +33,7 @@ fi
 if [[ ! -f $ZEALISH/.iterm_hash ]]; then
   touch $ZEALISH/.iterm_hash
 fi
-if [[ "$(sha1sum $SOURCE_PROFILE_DIR/* | sha1sum)" == $(cat $ZEALISH/.iterm_hash) ]]; then
+if [[ "$(find $SOURCE_PROFILE_DIR -type f -print0 | sort -z | xargs -0 sha1sum | sha1sum)" == $(cat $ZEALISH/.iterm_hash) ]]; then
   return
 else
   echo "\e[33mINFO\e[0m: iTerm2 dynamic profiles hash updated, generating..."
@@ -41,4 +41,4 @@ else
     generate_iterm2_profiles $SOURCE_PROFILE_DIR/$h > "$DYNAMIC_PROFILE_DIR/`basename ${h%.*}`.json"
   done
 fi
-sha1sum $SOURCE_PROFILE_DIR/* | sha1sum > $ZEALISH/.iterm_hash
+find $SOURCE_PROFILE_DIR -type f -print0 | sort -z | xargs -0 sha1sum | sha1sum > $ZEALISH/.iterm_hash
