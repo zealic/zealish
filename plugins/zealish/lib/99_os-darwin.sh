@@ -6,7 +6,7 @@ fi
 eval `/usr/libexec/path_helper -s`
 
 # Check configure path for System and User
-if ! ps eww $$ | grep -o -e 'PATH=[^ ]*' | grep /usr/local/bin; then
+if ! ps eww $$ | grep -o -e 'PATH=[^ ]*' | grep /usr/local/bin > /dev/null; then
   xpaths=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
   if [ -f /etc/paths ]; then
     xpaths=$(while read line; do

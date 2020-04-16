@@ -26,9 +26,19 @@ generate_iterm2_profiles() {
 EOF
 }
 
+# Regenerate
 if [[ ! -d "${SOURCE_PROFILE_DIR}" ]]; then
   return
 fi
-for h in `ls "$SOURCE_PROFILE_DIR"`; do
-  generate_iterm2_profiles $SOURCE_PROFILE_DIR/$h > "$DYNAMIC_PROFILE_DIR/`basename ${h%.*}`.json"
-done
+if [[ ! -f $ZEALISH/.iterm_hash ]]; then
+  touch $ZEALISH/.iterm_hash
+fi
+if [[ "$(sha1sum $SOURCE_PROFILE_DIR/* | sha1sum)" == $(cat $ZEALISH/.iterm_hash) ]]; then
+  return
+else
+  echo "\e[33mINFO\e[0m: iTerm2 dynamic profiles hash updated, generating..."
+  for h in `ls "$SOURCE_PROFILE_DIR"`; do
+    generate_iterm2_profiles $SOURCE_PROFILE_DIR/$h > "$DYNAMIC_PROFILE_DIR/`basename ${h%.*}`.json"
+  done
+fi
+sha1sum $SOURCE_PROFILE_DIR/* | sha1sum > $ZEALISH/.iterm_hash
