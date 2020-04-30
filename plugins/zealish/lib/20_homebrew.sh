@@ -1,3 +1,6 @@
+# Disable build from source
+export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
+
 path+=(
   # coreutils
   /usr/local/opt/coreutils/libexec/gnubin
