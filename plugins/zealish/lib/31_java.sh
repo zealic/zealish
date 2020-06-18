@@ -12,6 +12,9 @@ fi
 # Maven
 ## Fuck GFW
 if [[ ! -f ~/.m2/settings.xml ]]; then
+  if [[ ! -d ~/.m2 ]]; then
+    mkdir -p ~/.m2
+  fi
   cat > ~/.m2/settings.xml <<EOF
 <settings>
   <mirrors>
