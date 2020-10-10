@@ -8,11 +8,13 @@ fi
 
 generate_iterm2_profiles() {
   local hosts_file=$1
-  cat <<"EOF" | $GOMPLATE_BIN --datasource source=$hosts_file
+  local hosts_chksum=`md5sum $hosts_file | awk '{ print $1 }'`
+  cat <<"EOF" | HOSTS_CHECKSUM=$hosts_chksum $GOMPLATE_BIN --datasource source=$hosts_file
 {{- $source := (ds "source") }}
 {{- $profiles := data.JSONArray "[]" }}
+{{- $hosts_checksum := env.Getenv "HOSTS_CHECKSUM" }}
 {{- range $i, $e := $source.hosts }}
-  {{- $guid := print (conv.Join $source.tags "-") "-" $e.address }}
+  {{- $guid := print $hosts_checksum "::" $e.name "::" (conv.Join $source.tags "-") "::" $e.address }}
   {{- $port := "" }}
   {{- if (coll.Has $e "port") }}{{ $port = print "-p" $e.port " " }}{{ end }}
   {{- $user := "root" }}
