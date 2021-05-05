@@ -24,8 +24,13 @@ startup_os() {
   if [ -z "$kzsh" ] && [ -z "$kbash" ]; then
     echo "Unsupported shell!"
   fi
+  # for x64 version
   if [[ -f "/usr/local/opt/coreutils/libexec/gnubin/readlink" ]]; then
     readlink=/usr/local/opt/coreutils/libexec/gnubin/readlink
+  fi
+  # for arm universal version
+  if [[ -f "/opt/homebrew/opt/coreutils/libexec/gnubin/readlink" ]]; then
+    readlink=/opt/homebrew/opt/coreutils/libexec/gnubin/readlink
   fi
 
   if [[ ! -z "$kzsh" ]]; then
