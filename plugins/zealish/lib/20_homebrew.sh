@@ -9,3 +9,6 @@ path+=(
 )
 
 # export MANPATH="/usr/local/man:$MANPATH"
+
+# Shell environment
+eval "$(/opt/homebrew/bin/brew shellenv)"
