@@ -10,4 +10,4 @@ if [[ ! -d "$BACKUP_DIR" ]]; then
 fi
 
 brew leaves > $BACKUP_DIR/Homebrew.lst
-brew cask list > $BACKUP_DIR/Homebrew-Caskroom.lst
+brew list --cask > $BACKUP_DIR/Homebrew-Caskroom.lst
