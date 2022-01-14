@@ -35,7 +35,7 @@ fi
 if [[ ! -f $ZEALISH/.iterm_hash ]]; then
   touch $ZEALISH/.iterm_hash
 fi
-if [[ "$(find $SOURCE_PROFILE_DIR -type f -print0 | sort -z | xargs -0 sha1sum | sha1sum)" == $(cat $ZEALISH/.iterm_hash) ]]; then
+if [[ "$(find $SOURCE_PROFILE_DIR -type f -iname "*.toml" -print0 | sort -z | xargs -0 sha1sum | sha1sum)" == $(cat $ZEALISH/.iterm_hash) ]]; then
   return
 else
   echo "\e[33mINFO\e[0m: iTerm2 dynamic profiles hash updated, generating..."
