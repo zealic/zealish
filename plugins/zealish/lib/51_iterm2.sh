@@ -41,8 +41,8 @@ else
   echo "\e[33mINFO\e[0m: iTerm2 dynamic profiles hash updated, generating..."
   # Delete legacy files
   rm -f $DYNAMIC_PROFILE_DIR/*.json
-  for h in `ls "$SOURCE_PROFILE_DIR"`; do
-    generate_iterm2_profiles $SOURCE_PROFILE_DIR/$h > "$DYNAMIC_PROFILE_DIR/`basename ${h%.*}`.json"
+  for h in `find $SOURCE_PROFILE_DIR -type f -iname "*.toml"`; do
+    generate_iterm2_profiles $h > "$DYNAMIC_PROFILE_DIR/`basename ${h%.*}`.json"
   done
 fi
-find $SOURCE_PROFILE_DIR -type f -print0 | sort -z | xargs -0 sha1sum | sha1sum > $ZEALISH/.iterm_hash
+find $SOURCE_PROFILE_DIR -type f -iname "*.toml" -print0 | sort -z | xargs -0 sha1sum | sha1sum > $ZEALISH/.iterm_hash
